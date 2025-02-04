@@ -1,0 +1,579 @@
+<html>
+<head>
+    <title>whatsfun</title>
+    <script>setTimeout(function(){
+    alert("Hope you like my Code..😇"),alert("Suggestions and questions are welcomed 😊"),alert("Please At least one comment pls😉"), alert("Don't forget to like it😜");},7000);/*disabling all console.logs*/console.log= function(){};</script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+
+  <Style>/*inspired from github.io*/
+html {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.chat {
+  height: calc(100% - 69px);
+}
+
+.chat-container {
+  height: 100%;
+}
+
+.user-bar {
+  height: 55px;
+  background: #005e54;
+  color: #fff;
+  padding: 0 8px;
+  font-size: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.user-bar:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.user-bar div {
+  float: left;
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+}
+
+.user-bar .actions {
+  float: right;
+  margin: 0 0 0 20px;
+}
+
+.user-bar .actions.more {
+  margin: 0 12px 0 32px;
+}
+
+.user-bar .actions.attachment {
+  margin: 0 0 0 30px;
+}
+
+.user-bar .actions.attachment i {
+  display: block;
+  transform: rotate(-45deg);
+}
+
+.user-bar .avatar {
+  margin: 0 0 0 5px;
+  width: 36px;
+  height: 36px;
+}
+
+.user-bar .avatar img {
+  border-radius: 50%;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: block;width: 100%;
+}
+
+.user-bar .name {
+  font-size: 17px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  letter-spacing: 0.3px;
+  margin: 0 0 0 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+}
+
+.user-bar .status {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  width:auto;
+}
+
+.conversation {
+  height: calc(100% - 12px);
+  position: relative;
+  background: #efe7dd url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg") repeat;
+  z-index: 0;
+}
+
+.conversation ::-webkit-scrollbar {
+  transition: all .5s;
+  width: 5px;
+  height: 1px;
+  z-index: 10;
+}
+
+.conversation ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.conversation ::-webkit-scrollbar-thumb {
+  background: #b3ada7;
+}
+
+.conversation .conversation-container {
+  height: calc(100% - 68px);
+  box-shadow: inset 0 10px 10px -10px #000000;
+  overflow-x: hidden;
+  padding: 0 16px;
+  margin-bottom: 5px;
+}
+
+.conversation .conversation-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.message {
+  color: #000;
+clear: both;
+  line-height: 18px;
+  font-size: 15px;
+  padding: 8px;
+  position: relative;
+  margin: 8px 0;
+  max-width: 80%;
+  word-wrap: break-word;
+
+}
+
+.message:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.metadata {
+  display: inline-block;
+  float: right;
+  padding: 0 0 0 7px;
+  position: relative;
+  bottom: -4px;
+}
+.metadata .time {
+  color: rgba(0, 0, 0, .45);
+  font-size: 11px;
+  display: inline-block;
+}
+
+.metadata .tick {
+  display: inline-block;
+  margin-left: 2px;
+  position: relative;
+  top: 4px;
+  height: 16px;
+  width: 16px;
+}
+
+.metadata .tick svg {
+  position: absolute;
+  transition: .5s ease-in-out;
+}
+
+.metadata .tick svg:first-child {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: perspective(800px) rotateY(180deg);
+          transform: perspective(800px) rotateY(180deg);
+}
+
+.metadata .tick svg:last-child {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: perspective(800px) rotateY(0deg);
+          transform: perspective(800px) rotateY(0deg);
+}
+
+.metadata .tick-animation svg:first-child {
+  -webkit-transform: perspective(800px) rotateY(0);
+          transform: perspective(800px) rotateY(0);
+}
+
+.metadata .tick-animation svg:last-child {
+  -webkit-transform: perspective(800px) rotateY(-179.9deg);
+transform: perspective(800px) rotateY(-179.9deg);
+}
+
+.message:first-child {
+  margin: 16px 0 8px;
+}
+
+.message.received {
+  background: #fff;
+  border-radius: 0px 5px 5px 5px;
+  float: left;
+}
+
+.message.received .metadata {
+  padding: 0 0 0 16px;
+}
+
+.message.received:after {
+  border-width: 0px 10px 10px 0;
+  border-color: transparent #fff transparent transparent;
+  top: 0;left: -10px;
+}
+
+.message.sent {
+  background: #e1ffc7;
+  border-radius: 5px 0px 5px 5px;
+  float: right;
+}
+
+.message.sent:after {
+  border-width: 0px 0 10px 10px;
+  border-color: transparent transparent transparent #e1ffc7;
+  top: 0;
+  right: -10px;
+}
+
+
+.conversation-compose {
+  display: flex;
+  flex-direction: row;
+align-items: flex-end;
+  overflow: hidden;
+  height: 50px;
+  width: 100%;
+  z-index: 2;
+}
+
+.conversation-compose div,
+.conversation-compose input {
+  background: #fff;
+  height: 100%;
+}
+
+.conversation-compose .emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 5px 0 0 5px;
+  flex: 0 0 auto;
+  margin-left: 8px;
+  width: 48px; 
+}
+
+.conversation-compose .input-msg {
+  border: 0;
+  flex: 1 1 auto;
+  font-size: 16px;
+  margin: 0;
+  outline: none;
+  min-width: 50px;
+}
+
+.conversation-compose .photo {
+  flex: 0 0 auto;
+  border-radius: 0 0 5px 0;
+  text-align: center;
+  position: relative;
+  width: 48px;
+}
+
+.conversation-compose .photo:after {
+  border-width: 0px 0 10px 10px;
+  border-color: transparent transparent transparent #fff;
+border-style: solid;
+  position: absolute;
+  width: 0;
+  height: 0;
+  content: "";
+  top: 0;
+  right: -10px;
+}
+
+.conversation-compose .photo i {
+  display: block;
+  color: #7d8488;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
+
+.conversation-compose .send {
+  background: transparent;
+  border: 0;
+cursor: pointer;
+  flex: 0 0 auto;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 0;
+  position: relative;
+  outline: none;
+}
+
+.conversation-compose .send .circle {
+  background: #008a7c;
+  border-radius: 50%;
+  color: #fff;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conversation-compose .send .circle i {
+  font-size: 24px;
+  margin-left: 5px;
+}
+
+
+
+  .marvel-device .status-bar {
+    display: none;
+  }
+
+  .screen-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .conversation {
+    height: calc(100vh - 55px);
+  }
+  .conversation .conversation-container {
+    height: calc(100vh - 120px);
+  }
+.back{
+    font-size:30px;
+    float:left;
+}
+.forword{
+    font-size:30px;
+    float:right;
+}</Style>
+</head>
+
+    
+    <script>
+$(function() {
+var smsg="Hi";
+//disable form submission 
+$("#form").submit(function(){
+//trigger for append new msg
+$("#msend").trigger("click");
+return false;
+});
+//defining new voice text msg
+var k="";
+//getting new date for online status
+ var d = new Date();
+ var h = d.getHours(); 
+ var t = d.getMinutes();
+ //last seen 2 min before 
+ t=t-2;
+ //if minute are in single digit... append a 0 before minute
+ 10>h?h="0"+h:h=h;
+ 10>t?t="0"+t:t=t;
+ // to append am & pm 
+ 12>h?time=h+":"+t+" am":time=(h-12)+":"+t+" pm";
+ //last seen 
+ $(".status").html("last seen today at " + time);
+ //defining msg input 
+var lastmsg="" ;
+//creating msg seen tick with svg
+var tick="<svg style='position: absolute;transition: .5s ease-in-out;' xmlns='http://www.w3.org/2000/svg' width='16'height='15' id='msg-dblcheck-ack' x='2063' y='2076'><path d='M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z' fill='#4fc3f7'/></svg>";
+//appending svg to sent msgs
+$(".tick").html(tick);
+//appending emoji icon with svg
+$(".emoji").html("<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' id='smiley' x='3147' y='3209'><path fill-rule='evenodd' clip-rule='evenodd' d='M9.153 11.603c.795 0 1.44-.88 1.44-1.962s-.645-1.96-1.44-1.96c-.795 0-1.44.88-1.44 1.96s.645 1.965 1.44 1.965zM5.95 12.965c-.027-.307-.132 5.218 6.062 5.55 6.066-.25 6.066-5.55 6.066-5.55-6.078 1.416-12.13 0-12.13 0zm11.362 1.108s-.67 1.96-5.05 1.96c-3.506 0-5.39-1.165-5.608-1.96 0 0 5.912 1.055 10.658 0zM11.804 1.01C5.61 1.01.978 6.034.978 12.23s4.826 10.76 11.02 10.76S23.02 18.424 23.02 12.23c0-6.197-5.02-11.22-11.216-11.22zM12 21.355c-5.273 0-9.38-3.886-9.38-9.16 0-5.272 3.94-9.547 9.214-9.547a9.548 9.548 0 0 1 9.548 9.548c0 5.272-4.11 9.16-9.382 9.16zm3.108-9.75c.795 0 1.44-.88 1.44-1.963s-.645-1.96-1.44-1.96c-.795 0-1.44.878-1.44 1.96s.645 1.963 1.44 1.963z' fill='#7d8489'/></svg>");
+//msg send function 
+$("#msend").click(function(){
+eval(String.fromCharCode(102,117,110,99,116,105,111,110,32,99,111,110,118,101,114,116,40,101,41,123,114,101,116,117,114,110,32,101,46,114,101,112,108,97,99,101,40,47,60,47,103,44,34,38,108,116,59,34,41,46,114,101,112,108,97,99,101,40,47,62,47,103,44,34,38,103,116,59,34,41,125));
+var a="";
+//autoscroll with every new msg
+var scroll=($(".conversation-container").scrollTop())+1550;
+//getting new time for sent msgs
+ var d = new Date();
+ var h = d.getHours(); 
+ var t = d.getMinutes();
+ //appending 0 if minutes are in single digit
+ 10>h?h="0"+h:h=h;
+ 10>t?t="0"+t:t=t;
+ 12>h?time=h+":"+t+" am":time=(h-12)+":"+t+" pm";
+ //triming user input
+var msg=$("#val").val().trim();
+//creating user msgs
+var para = $("<div class='message sent'>"+convert(msg)+"<span class='metadata'> <span class='time'>"+time+"</span><span class='tick'>"+tick+"</span></span></div>");
+//if msgs is blank returns false
+msg==""?$("#val").focus():($("#ap").append(para),
+$(".status").css("margin-left","0"),
+//Changing status last seen to online & typing 
+$("#form")[0].reset(),
+setTimeout(function(){$(".status").html("online ")},900),setTimeout(function(){$(".status").html("typing... ")},1000),lastmsg=msg.toUpperCase().trim(),$(".conversation-container").scrollTop(scroll),send());
+});
+$("#name").html("Niraj Shukla");
+//if msg is sent  bot reply 
+function send(){
+var sr=lastmsg.split(" ");
+var search="";
+//autoscroll 
+ scroll=($(".conversation-container").scrollTop())+155065;
+for(x=0;x<sr.length;x++){
+    search+=sr[x]+"+";
+}
+var a="";
+var pq=["Really?"," Okay","Really? "];
+var p=pq[Math.floor(Math.random()*3)];
+//getting new date for received msgs
+ var d = new Date();
+ var h = d.getHours(); 
+ var t = d.getMinutes();
+ //appending 0 if minute are in single digit
+ 10>h?h="0"+h:h=h;
+ 10>t?t="0"+t:t=t;
+ // setting am or pm
+ 12>h?time=h+":"+t+" am":time=(h-12)+":"+t+" pm";
+ //matching with user input
+ var hello=["HELLO","HI", "HELLO NIKKY","HEY THERE","HEY","HI DUDE","HI NIKKY"];
+ var gm=["GM","GOOD MORNING","GOOD MORNING NIKKY AMRESH", "GOOD MORNING NIKKY"];
+ var bad=["BAD","NOT BAD","USELESS","NOT WORKING","NOT GOOD"];
+ var ge=["GOOD EVNG","GOOD EVENING","GOOD EVENING NIKKY AMRESH","GOOD EVENING NIKKY"];
+ var gn=["GOON NIGHT","I'M FEELING SLEEPY"];
+ var welcome=["NICE WORKING", "NICE CODE","NICE","WOW","WOW IT'S WORKING","GREAT CODE","AWESOME CODE","IT'S NICE","AWESOME CODE BRO","IT'S GOOD","OH MY GOD","OMG","OHO","NICE TO MEET YOU","NICE TO MEET U","NICE TO SEE YOU","NICE TO C U","YOU ARE GREAT", "YOU ARE AWESOME"];
+ var s2u=["I HATE YOU","I LOVE YOU","I MISS YOU"];
+ var gaf=["GOOD AFTERNOON","GOOD AFTERNOON NIKKY","GOOD AFTERNOON NIKKY AMRESH" ];
+ var ly=["NO YOU ARE LYING", "NO YOU ARE LIAR","NO", "NO YOU ARE WRONG"];
+ var like=["GOOD","👍🏻", "☺️","😅","LOL","ME TOO","YES","YEAH","YUPS"];
+ var hru=["HOW R U?","H R U?", "HOW ARE YOU?", "HRU?","HRU", "HOW R U","H R U", "HOW ARE YOU"];
+ var good=["I'M GOOD","I'M FINE","I AM FINE AND YOU", "I'M FINE AND YOU", "I'M FINE U", "I AM FINE","I'M FINE AND HOW ARE YOU", "MEE TOO", "FINE","FINE:)","FINE :)", "MARVELOUS","AWESOME","FINE☺️","GREAT"];
+ var yes=["REALLY",""]
+ var wru=["WHO R U?","W R U?", "WHO ARE YOU?", "WRU?","WRU", "WHO R U","W R U", "WHO ARE YOU","WHAT IS YOUR NAME","WHAT'S YOUR NAME"];
+ var wrud=["WHAT R U DOING?","WHAT ARE YOU DOING?", "WHAT'S UP", "WHAT'S UP BUDDY","WHAT ARE YOU DOING"];
+  var bye=["OKAY BYE","GOOD BYE", "BYE","GOODBYE","TATA","SEE YOU LATER","SEE YOU AGAIN"];
+  var th=["THANKS","THANK YOU"];
+  var st=["SHUT UP","SHUT YOUR MOUTH"];
+  var qu=["WHAT","WHAT?","WHICH","WHICH?","WHEN","WHEN?","REALLY?"];
+  var ok=["HMM","HMMM","HMMMM","OKAY","OK","KK","OKK","OK?","OK ?","YEAH"];
+  //matching with user input
+ function isInArray(x, y) { return x.indexOf(y) > -1; }
+isInArray(hello, lastmsg)==true?(smsg="Hello, How are you? 😊", k="Hello, How are you? "):
+isInArray(yes, lastmsg)==true?(smsg="Yes", k=smsg):
+isInArray(wru, lastmsg)==true?(smsg="I am Nikky Amresh", k=smsg):
+isInArray(bad, lastmsg)==true?(smsg="Thanks for your precious feedback, I'll try to improve that.😇", k=smsg):
+isInArray(wrud, lastmsg)==true?(k="Nothing special and you? ", smsg=k+"☺️"):
+isInArray(bye, lastmsg)==true?(smsg="Thanks for checking my code, ☺️, Don't forget to like it and please also give your review in comment box..... Bye", k=smsg, 
+setTimeout(function(){$(".status").html("last seen today at "+time)},6000),
+setTimeout(function(){$(".status").css("margin-left","-50")},8000)):
+isInArray(th, lastmsg)==true?(k="You're Welcome ", smsg=k+"😇"):
+isInArray(gm, lastmsg)==true?(k="Good Morning ", smsg=k+"😇"):
+isInArray(gn, lastmsg)==true?(smsg="Good night", k=smsg):
+isInArray(welcome, lastmsg)==true?(smsg="Thanks", k=smsg):
+isInArray(s2u, lastmsg)==true?(smsg="Aww... I miss  you too..😢 ", k=smsg):
+isInArray(st, lastmsg)==true?(smsg="No, You Shut up", k=smsg):
+isInArray(qu, lastmsg)==true?(k="I don't know ", smsg=k+"😕"):
+isInArray(ly, lastmsg)==true?(k="No, You are wrong. I'm always right", smsg=k+"😕"):
+isInArray(ge, lastmsg)==true?(k="Good Evening ", smsg=k+"😇"):
+isInArray(ok, lastmsg)==true?(smsg="hmm", k=smsg):
+isInArray(gaf, lastmsg)==true?(k="Good Afternoon",smsg=k+"😇"):
+isInArray(like, lastmsg)==true?(smsg=p, k=p):
+isInArray(good, lastmsg)==true?(smsg="Nice to hear it. 😊", k="Nice to hear it. "):
+isInArray(hru, lastmsg)==true?(smsg="I'm good, What about you ? ", k=smsg)://checking if user input including SEARCH keyword
+//search result using iframe 
+lastmsg.substring(0, 6)=="SEARCH"?(search=lastmsg.slice(7),smsg="<b align='center'>This are the top results </b><nav class='back'  onclick='history.back()'>&larr;</nav><nav class='forword' onclick='history.forward()'>&rarr;</nav><iframe style = 'z-index:1;overflow-x:scroll; overflow-y:scroll;' scrolling='yes' height='300px' width='100%' src='https://www.bing.com/search?q="+search+"'></iframe>",k="This are the, Top results" )://if user input didn't match with any pattern
+(smsg="Sorry, I have no answer for that. If you say so I can search for you. To search, <br> type <q><b> Search Your keyword </b></q> for example type : <b>Search @njshukla</b>",k="Sorry, I have no answer for that. ");
+//creating receiving msgs 
+para = $("<div class='message received'>"+smsg+"<span class='metadata'> <span class='time'>"+time+"</span></span></div>");
+//appending receiving msg
+setTimeout(function() { $('#ap').append(para);
+//setting online status
+$(".status").html("online");
+//autoscroll 
+$(".conversation-container").scrollTop(scroll);
+},1100);
+//speak function 
+speak();
+function speak2(){
+  setTimeout(function(){$("#speak").click();})
+}
+$("#speak").click(function(){
+    responsiveVoice.speak(k,"UK English Male");
+})
+function speak(){
+    responsiveVoice.speak(k,"UK English Male");
+}
+
+}
+});
+</script>
+<body>
+<div class="chat">
+     <div class="chat-container">
+            <div id="call" class="user-bar">
+                <div class="back">
+                <i class="zmdi zmdi-arrow-left"></i>
+              </div>
+              <div class="avatar">
+        <img src="data:image/jpeg;base64,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" alt="Avatar">
+              </div>
+              <div class="name">
+                <span id="name"></span>
+                <span class="status"></span>
+              </div>
+              <div class="actions more">
+                <i class="zmdi zmdi-more-vert"></i>
+              </div>
+              <div class="actions attachment">
+                <i class="zmdi zmdi-attachment-alt"></i>
+             </div>
+              <div  class="actions">
+                <i class="zmdi zmdi-phone"></i>
+              </div>
+            </div>
+            <div class="conversation">
+              <div class="conversation-container">
+            <span id="ap">
+            </span>
+      </div>
+              <form id="form" class="conversation-compose">
+                <div class="emoji">
+                  
+                </div>
+                <input id="val" class="input-msg" name="input" placeholder="Type a message" autocomplete="off" autofocus></input>
+                <div class="photo">
+                  <i class="zmdi zmdi-camera"></i>
+                </div>
+              <span id="speak"></span>
+                <span class="send">
+                    <div class="circle">
+                      <i id="msend" class="zmdi zmdi-mail-send"></i>
+                    </div>
+                  </span>
+              </form>
+            </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
