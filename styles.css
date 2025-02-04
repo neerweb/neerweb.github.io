@@ -1,0 +1,126 @@
+/* Import Google Font */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Section */
+header {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header .subtitle {
+    font-size: 20px;
+}
+
+header .name {
+    color: #FFD700;
+    font-weight: bold;
+}
+
+/* Section Container */
+.section-container {
+    max-width: 1024px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* About Section */
+.about {
+    padding: 40px 20px;
+    background-color: white;
+}
+
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about p, .about ul {
+    font-size: 16px;
+}
+
+.about ul {
+    margin-top: 10px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Skills Section */
+.skills {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+.skills h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.skills ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 40px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.contact a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.whatsapp-btn {
+    margin-top: 20px;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1da355;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
