@@ -1,0 +1,135 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navigation */
+nav {
+    background: #002147;
+    padding: 15px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+nav ul li {
+    margin: 0 20px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.hero .slider {
+    width: 100%;
+    height: 100%;
+}
+.hero .slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+.hero .slide.active {
+    display: block;
+}
+
+/* Categories */
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.category {
+    width: 200px;
+    margin: 10px;
+}
+.category img {
+    width: 100%;
+}
+
+/* Featured Products */
+.product-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.product {
+    width: 350px;
+    margin: 10px;
+}
+.product img {
+    width: 100%;
+}
+
+/* Clients */
+.clients {
+    padding: 20px;
+}
+.client-list {
+    display: flex;
+    justify-content: center;
+}
+.client img {
+    width: 200px;
+    margin: 10px;
+}
+
+/* Gallery */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+}
+.gallery-item img {
+    width: 400px;
+}
+
+/* Footer */
+footer {
+    background: #002147;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.whatsapp-button img {
+    width: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero {
+        height: 50vh;
+    }
+    .category-list, .product-list, .client-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
